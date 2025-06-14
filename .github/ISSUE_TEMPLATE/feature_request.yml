@@ -1,0 +1,75 @@
+name: Feature Request
+description: Sugira uma nova funcionalidade
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por sugerir uma nova funcionalidade! 🚀
+        
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema a Resolver
+      description: Qual problema esta funcionalidade resolveria?
+      placeholder: Atualmente não é possível...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solução Proposta
+      description: Como você gostaria que funcionasse?
+      placeholder: Gostaria que o sistema pudesse...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas Consideradas
+      description: Considerou outras abordagens?
+      placeholder: Pensei em usar X, mas...
+      
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridade
+      description: Qual a importância desta funcionalidade?
+      options:
+        - Baixa - seria legal ter
+        - Média - melhoraria a experiência
+        - Alta - essencial para o projeto
+        - Crítica - projeto não funciona sem isso
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Complexidade Estimada
+      description: Como você avalia a complexidade?
+      options:
+        - Baixa - mudança simples
+        - Média - algumas modificações
+        - Alta - refatoração significativa
+        - Muito Alta - mudança arquitetural
+        
+  - type: checkboxes
+    id: requirements
+    attributes:
+      label: Requisitos
+      options:
+        - label: Não quebra compatibilidade
+        - label: Mantém performance atual
+        - label: Inclui documentação
+        - label: Inclui testes (se aplicável)
+        
+  - type: textarea
+    id: additional
+    attributes:
+      label: Informações Adicionais
+      description: Algo mais que gostaria de compartilhar?
+      placeholder: Links, referências, mockups...

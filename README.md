@@ -1,6 +1,7 @@
-# Sistema RFID com ESP32-S3 📡Sistema completo de controle de acesso RFID utilizando ESP32-S3, módulo RC522 e interface web responsiva. O projeto implementa um banco de dados local usando NVS (Non-Volatile Storage) e oferece uma API REST completa para gerenciamento de cartões.## 🚀 Características- **Detecção automática de cartões RFID** - Reconhece qualquer cartão automaticamente- **Interface web moderna** - Dashboard responsivo para gerenciamento- **API REST completa** - Endpoints para todas as operações CRUD- **Banco de dados local** - Armazenamento persistente usando NVS do ESP32- **Wi-Fi Station Mode** - Conecta automaticamente à rede configurada- **Logs detalhados** - Sistema de debug completo para diagnóstico- **Arquitetura modular** - Código organizado em componentes reutilizáveis## 🛠️ Hardware Necessário- **ESP32-S3** (placa de desenvolvimento)- **Módulo RC522** (leitor RFID)- **Cartões/Tags RFID** (13.56MHz)- **Jumpers** para conexão- **Fonte 5V** (opcional, dependendo da placa)## 📋 Conexões### RC522 ↔ ESP32-S3| RC522 | ESP32-S3 | Descrição ||-------|----------|-----------|| MISO  | GPIO 35  | Master In Slave Out || MOSI  | GPIO 36  | Master Out Slave In || SCK   | GPIO 37  | Serial Clock || SDA   | GPIO 39  | Chip Select || RST   | GPIO 38  | Reset |
-| 3.3V  | 3.3V     | Alimentação |
-| GND   | GND      | Terra |
+# Sistema RFID com ESP32-S3 📡Sistema completo de controle de acesso RFID utilizando ESP32-S3, módulo RC522 e interface web responsiva. O projeto implementa um banco de dados local usando NVS (Non-Volatile Storage) e oferece uma API REST completa para gerenciamento de cartões.## 🚀 Características- **Detecção automática de cartões RFID** - Reconhece qualquer cartão automaticamente- **Interface web moderna** - Dashboard responsivo para gerenciamento- **API REST completa** - Endpoints para todas as operações CRUD- **Banco de dados local** - Armazenamento persistente usando NVS do ESP32- **Wi-Fi Station Mode** - Conecta automaticamente à rede configurada- **Logs detalhados** - Sistema de debug completo para diagnóstico- **Arquitetura modular** - Código organizado em componentes reutilizáveis## 🛠️ Hardware Necessário- **ESP32-S3** (placa de desenvolvimento)- **Módulo RC522** (leitor RFID)- **Cartões/Tags RFID** (13.56MHz)- **Jumpers** para conexão- **Fonte 5V** (opcional, dependendo da placa)## 📋 Conexões### RC522 ↔ ESP32-S3| RC522 | ESP32-S3 | Descrição ||-------|----------|-----------|| MISO | GPIO 35 | Master In Slave Out || MOSI | GPIO 36 | Master Out Slave In || SCK | GPIO 37 | Serial Clock || SDA | GPIO 39 | Chip Select || RST | GPIO 38 | Reset |
+
+| 3.3V | 3.3V | Alimentação |
+| GND | GND | Terra |
 
 ## ⚙️ Configuração
 
@@ -29,6 +30,7 @@ idf.py -p COMx flash monitor
 ### 3. Acesso à Interface
 
 Após a inicialização, acesse:
+
 - **Interface Web**: `http://IP_DO_ESP32`
 - **API REST**: `http://IP_DO_ESP32/api/`
 
@@ -36,13 +38,13 @@ Após a inicialização, acesse:
 
 ### Endpoints Disponíveis
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| GET | `/api/cards` | Lista todos os cartões |
-| GET | `/api/last_card` | Último cartão detectado |
-| POST | `/api/cards` | Adiciona novo cartão |
-| PUT | `/api/cards/{id}` | Atualiza cartão existente |
-| DELETE | `/api/cards/{id}` | Remove cartão |
+| Método | Endpoint          | Descrição                 |
+| ------ | ----------------- | ------------------------- |
+| GET    | `/api/cards`      | Lista todos os cartões    |
+| GET    | `/api/last_card`  | Último cartão detectado   |
+| POST   | `/api/cards`      | Adiciona novo cartão      |
+| PUT    | `/api/cards/{id}` | Atualiza cartão existente |
+| DELETE | `/api/cards/{id}` | Remove cartão             |
 
 ### Exemplos de Uso
 
@@ -99,7 +101,7 @@ RFID-Database/
 
 - **Design**: Responsivo e moderno
 - **Framework**: HTML5, CSS3, JavaScript vanilla
-- **Recursos**: 
+- **Recursos**:
   - Dashboard em tempo real
   - Gerenciamento de cartões
   - Logs de acesso
@@ -110,11 +112,13 @@ RFID-Database/
 ### Problemas Comuns
 
 1. **Cartão não detectado**
+
    - Verifique as conexões SPI
    - Confirme a alimentação do RC522
    - Teste com diferentes cartões
 
 2. **Falha na conexão Wi-Fi**
+
    - Confirme credenciais no código
    - Verifique sinal da rede
    - Monitore logs via serial

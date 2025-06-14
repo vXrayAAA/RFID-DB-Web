@@ -1,0 +1,88 @@
+name: Bug Report
+description: Reporte um problema ou bug
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por reportar um bug! Isso nos ajuda a melhorar o projeto.
+        
+  - type: input
+    id: hardware
+    attributes:
+      label: Hardware Utilizado
+      description: Especifique o hardware (ESP32-S3, RC522, etc.)
+      placeholder: ex. ESP32-S3 DevKit, RC522 v1.2
+    validations:
+      required: true
+      
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição do Bug
+      description: Descreva claramente o problema encontrado
+      placeholder: Descreva o que aconteceu...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para Reproduzir
+      description: Como reproduzir o problema?
+      placeholder: |
+        1. Configurar hardware...
+        2. Executar comando...
+        3. Observar erro...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento Esperado
+      description: O que deveria acontecer?
+      placeholder: Descreva o comportamento esperado...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamento Atual
+      description: O que está acontecendo?
+      placeholder: Descreva o que está acontecendo...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs do Monitor Serial
+      description: Cole os logs relevantes aqui
+      placeholder: |
+        I (123) MAIN: Iniciando sistema...
+        E (456) RC522: Erro na comunicação SPI
+      render: shell
+      
+  - type: input
+    id: version
+    attributes:
+      label: Versão do ESP-IDF
+      description: Qual versão do ESP-IDF está usando?
+      placeholder: ex. v5.0.1
+      
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: Verifiquei as conexões de hardware
+          required: true
+        - label: Testei com diferentes cartões RFID
+          required: false
+        - label: Verifiquei a documentação
+          required: true
+        - label: Procurei por issues similares
+          required: true

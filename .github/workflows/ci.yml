@@ -1,0 +1,79 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup ESP-IDF
+      uses: espressif/esp-idf-ci-action@v1
+      with:
+        esp_idf_version: v5.0.1
+        target: esp32s3
+        
+    - name: Build project
+      run: |
+        cd $GITHUB_WORKSPACE
+        idf.py build
+        
+    - name: Check code size
+      run: |
+        cd $GITHUB_WORKSPACE
+        idf.py size
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifacts
+        path: |
+          build/*.bin
+          build/*.elf
+          build/*.map
+          
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install pre-commit
+        
+    - name: Run linter
+      run: |
+        # Add linting commands here
+        echo "Linting code..."
+        
+  documentation:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Check documentation
+      run: |
+        echo "Checking documentation..."
+        # Add documentation checks here
+        
+    - name: Generate docs
+      run: |
+        echo "Generating documentation..."
+        # Add documentation generation here
