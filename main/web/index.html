@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema RFID ESP32</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema RFID ESP32</h1>
+            <div class="status-bar">
+                <span id="connection-status" class="status-indicator">Desconectado</span>
+                <span id="last-update">Última atualização: --</span>
+            </div>
+        </header>
+
+        <main>
+            <!-- Dashboard de estatísticas -->
+            <section class="dashboard">
+                <div class="stat-card">
+                    <h3>Total de Cartões</h3>
+                    <span id="total-cards" class="stat-number">--</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Total de Acessos</h3>
+                    <span id="total-accesses" class="stat-number">--</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Último Cartão</h3>
+                    <span id="last-card" class="stat-text">--</span>
+                </div>
+            </section>
+
+            <!-- Seção de gerenciamento de cartões -->
+            <section class="card-management">
+                <h2>Gerenciar Cartões</h2>
+                
+                <!-- Formulário para adicionar cartão -->
+                <div class="card-form">
+                    <h3>Adicionar Novo Cartão</h3>
+                    <form id="add-card-form">
+                        <div class="form-group">
+                            <label for="card-uid">UID do Cartão:</label>
+                            <input type="text" id="card-uid" placeholder="Ex: A1:B2:C3:D4" required>
+                            <button type="button" id="scan-card-btn" class="btn-secondary">📱 Aproximar Cartão</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Nome/Descrição:</label>
+                            <input type="text" id="card-name" placeholder="Ex: João Silva" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="access-level">Nível de Acesso:</label>
+                            <select id="access-level">
+                                <option value="1">Básico</option>
+                                <option value="2">Intermediário</option>
+                                <option value="3">Administrador</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary">➕ Adicionar Cartão</button>
+                    </form>
+                </div>
+
+                <!-- Lista de cartões cadastrados -->
+                <div class="cards-list">
+                    <h3>Cartões Cadastrados</h3>
+                    <div class="table-container">
+                        <table id="cards-table">
+                            <thead>
+                                <tr>
+                                    <th>UID</th>
+                                    <th>Nome</th>
+                                    <th>Nível</th>
+                                    <th>Primeiro Acesso</th>
+                                    <th>Último Acesso</th>
+                                    <th>Total Acessos</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Os cartões serão carregados aqui via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Log de acessos -->
+            <section class="access-log">
+                <h2>📋 Log de Acessos</h2>
+                <div class="table-container">
+                    <table id="access-log-table">
+                        <thead>
+                            <tr>
+                                <th>Data/Hora</th>
+                                <th>UID</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Os logs serão carregados aqui via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <button id="refresh-logs-btn" class="btn-secondary">🔄 Atualizar Logs</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para confirmações -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Confirmação</h3>
+            <p id="modal-message">Tem certeza que deseja realizar esta ação?</p>
+            <div class="modal-buttons">
+                <button id="modal-confirm" class="btn-primary">Confirmar</button>
+                <button id="modal-cancel" class="btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast para notificações -->
+    <div id="toast" class="toast">
+        <span id="toast-message"></span>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
