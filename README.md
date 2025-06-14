@@ -1,7 +1,56 @@
-# Sistema RFID com ESP32-S3 📡Sistema completo de controle de acesso RFID utilizando ESP32-S3, módulo RC522 e interface web responsiva. O projeto implementa um banco de dados local usando NVS (Non-Volatile Storage) e oferece uma API REST completa para gerenciamento de cartões.## 🚀 Características- **Detecção automática de cartões RFID** - Reconhece qualquer cartão automaticamente- **Interface web moderna** - Dashboard responsivo para gerenciamento- **API REST completa** - Endpoints para todas as operações CRUD- **Banco de dados local** - Armazenamento persistente usando NVS do ESP32- **Wi-Fi Station Mode** - Conecta automaticamente à rede configurada- **Logs detalhados** - Sistema de debug completo para diagnóstico- **Arquitetura modular** - Código organizado em componentes reutilizáveis## 🛠️ Hardware Necessário- **ESP32-S3** (placa de desenvolvimento)- **Módulo RC522** (leitor RFID)- **Cartões/Tags RFID** (13.56MHz)- **Jumpers** para conexão- **Fonte 5V** (opcional, dependendo da placa)## 📋 Conexões### RC522 ↔ ESP32-S3| RC522 | ESP32-S3 | Descrição ||-------|----------|-----------|| MISO | GPIO 35 | Master In Slave Out || MOSI | GPIO 36 | Master Out Slave In || SCK | GPIO 37 | Serial Clock || SDA | GPIO 39 | Chip Select || RST | GPIO 38 | Reset |
+# Sistema RFID com ESP32-S3 📡
 
-| 3.3V | 3.3V | Alimentação |
-| GND | GND | Terra |
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![ESP32](https://img.shields.io/badge/ESP32-S3-red.svg)
+![RFID](https://img.shields.io/badge/RFID-RC522-green.svg)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg)
+
+Sistema completo de controle de acesso RFID utilizando ESP32-S3, módulo RC522 e interface web responsiva. O projeto implementa um banco de dados local usando NVS (Non-Volatile Storage) e oferece uma API REST completa para gerenciamento de cartões.
+
+## 📸 Demonstração
+
+### Interface Web
+![Interface Principal](images/page1.png)
+*Dashboard principal com lista de cartões cadastrados*
+
+![Gerenciamento](images/page2.png) 
+*Interface de gerenciamento e controle*
+
+### Hardware Setup
+![Hardware Setup](images/Stack.jpg)
+*Montagem do ESP32-S3 com módulo RC522*
+
+![Cartões RFID](images/tags.jpg)
+*Diferentes tipos de cartões e tags suportados*
+
+## 🚀 Características
+- **Detecção automática de cartões RFID** - Reconhece qualquer cartão automaticamente
+- **Interface web moderna** - Dashboard responsivo para gerenciamento
+- **API REST completa** - Endpoints para todas as operações CRUD
+- **Banco de dados local** - Armazenamento persistente usando NVS do ESP32
+- **Wi-Fi Station Mode** - Conecta automaticamente à rede configurada
+- **Logs detalhados** - Sistema de debug completo para diagnóstico
+- **Arquitetura modular** - Código organizado em componentes reutilizáveis
+
+## 🛠️ Hardware Necessário
+- **ESP32-S3** (placa de desenvolvimento)
+- **Módulo RC522** (leitor RFID)
+- **Cartões/Tags RFID** (13.56MHz)
+- **Jumpers** para conexão
+- **Fonte 5V** (opcional, dependendo da placa)
+
+## 📋 Conexões
+### RC522 ↔ ESP32-S3
+| RC522 | ESP32-S3 | Descrição |
+|-------|----------|-----------|
+| MISO  | GPIO 35  | Master In Slave Out |
+| MOSI  | GPIO 36  | Master Out Slave In |
+| SCK   | GPIO 37  | Serial Clock |
+| SDA   | GPIO 39  | Chip Select |
+| RST   | GPIO 38  | Reset |
+
+| 3.3V  | 3.3V     | Alimentação |
+| GND   | GND      | Terra |
 
 ## ⚙️ Configuração
 
