@@ -157,7 +157,7 @@ Contribuições são bem-vindas! Por favor:
 
 ## 👤 Autor
 
-Desenvolvido com ❤️ para a comunidade IoT.
+Desenvolvido por Nicolas Mantovani.
 
 ---
 
